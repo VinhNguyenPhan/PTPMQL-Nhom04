@@ -1,37 +1,24 @@
-@using MvcMovie.Models
+@model BMICalculatorMVC.Models.BMIModel
+
 @{
-    ViewData["Title"] = "Tính Chỉ Số BMI";
+    ViewBag.Title = "Tính chỉ số BMI";
 }
 
-<div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <div class="card shadow-lg p-4">
-                <h2 class="text-center text-primary mb-3">Tính Chỉ Số BMI</h2>
+<h2>Tính chỉ số BMI</h2>
 
-                <form method="post" class="mb-3">
-                    <div class="mb-3">
-                        <label class="form-label fw-bold">Cân nặng (kg):</label>
-                        <input type="number" name="CanNang" class="form-control" required>
-                    </div>
-
-                    <div class="mb-3">
-                        <label class="form-label fw-bold">Chiều cao (cm hoặc m):</label>
-                        <input type="number" name="ChieuCao" class="form-control" required>
-                    </div>
-
-                    <div class="d-grid">
-                        <button type="submit" class="btn btn-primary">Tính BMI</button>
-                    </div>
-                </form>
-
-                @if (Model != null)
-                {
-                    <div class="alert alert-info text-center fw-bold mt-3">
-                        <h4>Kết quả BMI: @Model.BMI.ToString("F2") - @Model.Category</h4>
-                    </div>
-                }
-            </div>
-        </div>
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.Weight)
+        @Html.TextBoxFor(m => m.Weight, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Weight, "", new { @class = "text-danger" })
     </div>
-</div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Height)
+        @Html.TextBoxFor(m => m.Height, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Height, "", new { @class = "text-danger" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Tính BMI</button>
+}

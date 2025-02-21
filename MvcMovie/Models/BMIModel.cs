@@ -1,20 +1,26 @@
 using System.ComponentModel.DataAnnotations;
-namespace MvcMovie.Models
-{
-public class TinhBMI
-{
-        public double CanNang { get; set; }
-        public double ChieuCao { get; set; }
-        public double BMI => (CanNang > 0) ? CanNang / (ChieuCao * ChieuCao) : 0;
 
-        public string KetQua
+namespace BMICalculatorMVC.Models
+{
+    public class BMIModel
+    {
+        [Required(ErrorMessage = "Vui lòng nhập cân nặng.")]
+        [Range(1, 500, ErrorMessage = "Cân nặng phải nằm trong khoảng 1 - 500 kg.")]
+        public double Weight { get; set; }
+
+        [Required(ErrorMessage = "Vui lòng nhập chiều cao.")]
+        [Range(0.5, 2.5, ErrorMessage = "Chiều cao phải nằm trong khoảng 0.5 - 2.5 mét.")]
+        public double Height { get; set; }
+
+        public double BMI => Weight / (Height * Height);
+        public string Category
         {
             get
             {
-                if (BMI < 18.5) return "Ban dang thieu can. Ban hay tap luyen va bo xung them dinh duong.";
-                if (BMI < 24.9) return "Ban co chi so binh thuong.";
-                if (BMI < 29.9) return "Ban dang thua can. Hay tap luyen de giam can.";
-                return "Ban dang BEO PHI. Hay tap luyen de giam can.";
+                if (BMI < 18.5) return "Gầy";
+                if (BMI < 24.9) return "Bình thường";
+                if (BMI < 29.9) return "Thừa cân";
+                return "Béo phì";
             }
         }
     }

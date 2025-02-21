@@ -1,0 +1,14 @@
+@model BMICalculatorMVC.Models.BMIModel
+
+@{
+    ViewBag.Title = "Kết quả BMI";
+}
+
+<h2>Kết quả BMI</h2>
+
+<p><strong>Cân nặng:</strong> @Model.Weight kg</p>
+<p><strong>Chiều cao:</strong> @Model.Height m</p>
+<p><strong>Chỉ số BMI:</strong> @Model.BMI.ToString("F2")</p>
+<p><strong>Phân loại:</strong> @Model.Category</p>
+
+<a href="@Url.Action("Index")" class="btn btn-primary">Tính lại</a>
