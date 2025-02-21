@@ -14,7 +14,7 @@ namespace MvcMovie.Controllers
                 UnitPrice = unitPrice
             };
 
-            ViewBag.Total = model.Index().ToString("N0") + " VND"; // Gọi Index() thay vì CalculateTotal()
+            ViewBag.Total = model.Index().ToString("N0") + " VND"; 
             return View();
         }
     }
