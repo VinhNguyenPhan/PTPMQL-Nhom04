@@ -1,9 +1,20 @@
 using System.ComponentModel.DataAnnotations;
-namespace MvcMovie.Models;
-public class HeThongPhanPhoi
+using System.ComponentModel.DataAnnotations.Schema;
+using MvcMovie.Models;
 
+
+namespace MvcMovie.Models
 {
-    public string? MaHTPP {get; set;}
-    public string? TenHTPP {get; set;}
+    [Table("HeThongPhanPhois")]
+    public class HeThongPhanPhoi
+    {
+        [Key]
+        public string MaHTPP { get; set; }
+        public string TenHTPP { get; set; }
+        public List<DaiLy> Daily { get; set; }
+        public HeThongPhanPhoi()
+        {
+            Daily = new List<DaiLy>();
+        }
+    }
 }
-//maHTPP,tenHTPP
