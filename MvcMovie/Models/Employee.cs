@@ -1,4 +1,3 @@
-using System.ComponentModel.DataAnnotations;
 namespace MvcMovie.Models;
 public class Employee
 {

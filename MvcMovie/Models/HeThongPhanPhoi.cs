@@ -1,6 +1,5 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using MvcMovie.Models;
 
 
 namespace MvcMovie.Models

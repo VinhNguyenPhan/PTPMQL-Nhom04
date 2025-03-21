@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Mvc;
-using System.Text.Encodings.Web;
 using BMICalculatorMVC.Models;
 
 namespace BMICalculatorMVC.Controllers

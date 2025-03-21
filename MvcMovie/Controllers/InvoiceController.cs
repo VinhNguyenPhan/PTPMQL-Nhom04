@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.JSInterop.Infrastructure;
 using MvcMovie.Models;
 
 namespace MvcMovie.Controllers
